@@ -37,7 +37,9 @@ if(!isset($_SESSION['customer_email'])){
 } 
   else
   { 
-      echo '<a href="my_account.php?my_orders" class="login__link">My Account</a>';
+    
+      //echo '<a href="my_account.php?my_orders" class="login__link">My Account</a>';
+     
   }   
 ?>  
 </li>
@@ -73,15 +75,15 @@ if(!isset($_SESSION['customer_email'])){
           <ul class="categories">
 
             <li class="categories__item">
-              <a class="categories__link" href="#">
-                Regular
+              <a class="categories__link" href="index.php">
+                Home
                
               </a>
               </li>
 
             <li class="categories__item">
-              <a class="categories__link" href="#">
-                Premium
+              <a class="categories__link" href="about.php">
+                About Us
                
               </a>
             </li>

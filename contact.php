@@ -167,22 +167,79 @@ $new_message = "
 $headers = "From: $sender_email \r\n";
 
 $headers .= "Content-type: text/html\r\n";
+/*SEND THE MAIL TO THE ADMIN*/
 
-mail($contact_email,$sender_subject,$new_message,$headers);
+
+//mail($contact_email,$sender_subject,$new_message,$headers);
+
+require 'PHPMailer-5.2-stable/PHPMailerAutoload.php';
+	
+	$mail = new PHPMailer;
+	
+	$mail->isSMTP();                                    
+	$mail->Host = 'smtp.gmail.com';  
+	$mail->SMTPAuth = true;                               
+	$mail->Username = 'nikhilgupta8822@gmail.com';                 
+	$mail->Password = 'Randy500$';                           
+	$mail->SMTPSecure = 'tls';                            
+	$mail->Port = 587;                                   
+	
+	$mail->setFrom('nikhilgupta8822@gmail.com', 'Complain');
+	$mail->addAddress('nikhilgupta8822@gmail.com', 'Recepient');     
+	
+	$mail->addReplyTo('nikhilgupta8822@gmail.com', 'Information');
+
+	
+	
+	
+	$mail->isHTML(true);                                
+	
+	$mail->Subject = $sender_subject;
+	$mail->Body    = $new_message;
+	$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+	
+  if(!$mail->send()) {
+		
+	} else {
+		
+	}
+	
+
+
+/*SEND THE MAIL TO THE ADMIN*/
 
 // Send email to sender through this code
 
 $email = $_POST['email'];
 
-$subject = "Welcome to my website";
+$subject = "Welcome to the Cake Carnival";
 
 $msg = "I shall get you soon, thanks for sending us email";
 
-$from = "sad.ahmed22224@gmail.com";
+$from = "nikhilgupta8822@gmail.com";
 
-mail($email,$subject,$msg,$from);
+//mail($email,$subject,$msg,$from);
+/*SEND A REPLY MESSAGE TO THE SENDER*/ 
+$mail->setFrom('nikhilgupta8822@gmail.com', 'The Cake Carnival');
+$mail->addAddress($email, 'Recepient');     
 
-echo "<h2 align='center'>Your message has been sent successfully</h2>";
+$mail->addReplyTo('nikhilgupta8822@gmail.com', 'Information');
+
+$mail->isHTML(true);                                
+
+$mail->Subject = $subject;
+$mail->Body    = $msg;
+$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+if(!$mail->send()) {
+  echo "<h2 align='center'>Your message has not been sent. Try Again Later !!</h2>";
+  
+} else {
+  echo "<h2 align='center'>Your message has been sent successfully</h2>";
+}
+/*SEND A REPLY MESSAGE TO THE SENDER*/
+
+
 
 }
 

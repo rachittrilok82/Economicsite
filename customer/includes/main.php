@@ -38,7 +38,9 @@
           } 
             else
             { 
-                echo '<a href="my_account.php?my_orders" class="login__link">My Account</a>';
+             
+
+               // echo '<a href="my_account.php?my_orders" class="login__link">My Account</a>';
             }   
 ?>  
           </li>
@@ -75,15 +77,15 @@
           <ul class="categories">
 
             <li class="categories__item">
-              <a class="categories__link" href="#">
-                Regular
+              <a class="categories__link" href="../index.php">
+                Home
                 
               </a>
               </li>
 
             <li class="categories__item">
-              <a class="categories__link" href="#">
-                Premium
+              <a class="categories__link" href="../about.php">
+                About Us
             
               </a>
             </li>
@@ -95,8 +97,8 @@
             </li>
 
             <li class="categories__item">
-              <a class="categories__link" href="../about.php">
-                About us
+              <a class="categories__link" href="../localstore.php">
+                Local Stores
               </a>
             </li>
 
@@ -111,13 +113,13 @@
                     <div class="dropdown__heading">Account Settings</div>
                     <ul class="dropdown__items">
                       <li class="dropdown__item">
-                        <a href="#" class="dropdown__link">My Wishlist</a>
+                        <a href="my_account.php?my_wishlist" class="dropdown__link">My Wishlist</a>
                       </li>
                       <li class="dropdown__item">
-                        <a href="#" class="dropdown__link">My Orders</a>
+                        <a href="my_account.php?my_orders" class="dropdown__link">My Orders</a>
                       </li>
                       <li class="dropdown__item">
-                        <a href="#" class="dropdown__link">View Shopping Cart</a>
+                        <a href="../cart.php" class="dropdown__link">View Shopping Cart</a>
                       </li>
                     </ul>
                   </div>
@@ -125,13 +127,13 @@
                     <div class="dropdown__heading"></div>
                     <ul class="dropdown__items">
                       <li class="dropdown__item">
-                        <a href="#" class="dropdown__link">Edit Your Account</a>
+                        <a href="my_account.php?edit_account" class="dropdown__link">Edit Your Account</a>
                       </li>
                       <li class="dropdown__item">
-                        <a href="#" class="dropdown__link">Change Password</a>
+                        <a href="my_account.php?change_pass" class="dropdown__link">Change Password</a>
                       </li>
                       <li class="dropdown__item">
-                        <a href="#" class="dropdown__link">Delete Account</a>
+                        <a href="my_account.php?delete_account" class="dropdown__link">Delete Account</a>
                       </li>
                     </ul>
                   </div>

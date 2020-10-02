@@ -50,13 +50,13 @@ include("includes/main.php");
                 <a href="#" class="footer-nav__link">The brand</a>
               </li>
               <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Local stores</a>
+                <a href="localstore.php" class="footer-nav__link">Local stores</a>
               </li>
               <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Customer service</a>
+                <a href="contact.php" class="footer-nav__link">Customer service</a>
               </li>
               <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Privacy &amp; cookies</a>
+                <a href="terms.php" class="footer-nav__link">Privacy &amp; cookies</a>
               </li>
               <li class="footer-nav__item">
                 <a href="#" class="footer-nav__link">Site map</a>
@@ -89,13 +89,13 @@ include("includes/main.php");
             <div class="footer-nav__heading">Your account</div>
             <ul class="footer-nav__list">
               <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Sign in</a>
+                <a href="checkout.php" class="footer-nav__link">Sign in</a>
               </li>
               <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Register</a>
+                <a href="customer_register.php" class="footer-nav__link">Register</a>
               </li>
               <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">View cart</a>
+                <a href="cart.php" class="footer-nav__link">View cart</a>
               </li>
               <li class="footer-nav__item">
                 <a href="#" class="footer-nav__link">View your lookbook</a>
@@ -133,7 +133,7 @@ include("includes/main.php");
         <div class="container clearfix">
 
           <div class="banner-award">
-            <span>Award winner</span><br> Bakery awards 2016
+            <span>Award winner</span><br> Bakery awards 2020
           </div>
 
           <div class="banner-social">
@@ -158,7 +158,7 @@ include("includes/main.php");
         <div class="container clearfix">
 
           <div class="copyright">
-            &copy; 2018 The Cake Carnival&trade;
+            &copy; 2020 The Cake Carnival&trade;
           </div>
 
           <div class="developer">

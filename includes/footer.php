@@ -74,7 +74,7 @@
 				<div class="footer-nav__heading">Contact details</div>
 				<address class="address">
 				Head Office: The Cake Carnival.<br>
-				180-182 Pune, London.
+				180-182 Pune, India.
 			</address>
 				<div class="phone">
 					Telephone:
@@ -93,7 +93,7 @@
 		<div class="container clearfix">
 
 			<div class="banner-award">
-				<span>Award winner</span><br> Bakery awards 2016
+				<span>Award winner</span><br> Bakery awards 2020
 			</div>
 
 			<div class="banner-social">
@@ -118,7 +118,7 @@
 		<div class="container clearfix">
 
 			<div class="copyright">
-				&copy; 2018 The Cake Carnival&trade;
+				&copy; 2020 The Cake Carnival&trade;
 			</div>
 
 			<div class="developer">

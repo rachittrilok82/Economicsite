@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: 26 مايو 2018 الساعة 15:56
--- إصدار الخادم: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Host: 127.0.0.1:3306
+-- Generation Time: Oct 02, 2020 at 10:17 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,31 +25,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `about_us`
+-- Table structure for table `about_us`
 --
 
-CREATE TABLE `about_us` (
-  `about_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `about_us`;
+CREATE TABLE IF NOT EXISTS `about_us` (
+  `about_id` int(10) NOT NULL AUTO_INCREMENT,
   `about_heading` text NOT NULL,
   `about_short_desc` text NOT NULL,
-  `about_desc` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `about_desc` text NOT NULL,
+  PRIMARY KEY (`about_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `about_us`
+-- Dumping data for table `about_us`
 --
 
 INSERT INTO `about_us` (`about_id`, `about_heading`, `about_short_desc`, `about_desc`) VALUES
-(1, 'About Us - Our Story', '\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,\r\n', 'Rhone was the collective vision of a small group of weekday warriors. For years, we were frustrated by the lack of activewear designed for men and wanted something better. With that in mind, we set out to design premium apparel that is made for motion and engineered to endure.\r\n\r\nAdvanced materials and state of the art technology are combined with heritage craftsmanship to create a new standard in activewear. Every product tells a story of premium performance, reminding its wearer to push themselves physically without having to sacrifice comfort and style.\r\n\r\nBeyond our product offering, Rhone is founded on principles of progress and integrity. Just as we aim to become better as a company, we invite men everywhere to raise the bar and join us as we move Forever Forward.');
+(1, 'About Us - Our Story', '\r\n\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,\r\n\r\n', '<p>The Cake Carnival was the collective vision of a small group of weekday warriors. For years, we were frustrated by the lack of activewear designed for men and wanted something better. With that in mind, we set out to design premium apparel that is made for motion and engineered to endure. Advanced materials and state of the art technology are combined with heritage craftsmanship to create a new standard in activewear. Every product tells a story of premium performance, reminding its wearer to push themselves physically without having to sacrifice comfort and style. Beyond our product offering, Rhone is founded on principles of progress and integrity. Just as we aim to become better as a company, we invite men everywhere to raise the bar and join us as we move Forever Forward.</p>');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `admins`
+-- Table structure for table `admins`
 --
 
-CREATE TABLE `admins` (
-  `admin_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE IF NOT EXISTS `admins` (
+  `admin_id` int(10) NOT NULL AUTO_INCREMENT,
   `admin_name` varchar(255) NOT NULL,
   `admin_email` varchar(255) NOT NULL,
   `admin_pass` varchar(255) NOT NULL,
@@ -57,31 +60,34 @@ CREATE TABLE `admins` (
   `admin_contact` varchar(255) NOT NULL,
   `admin_country` text NOT NULL,
   `admin_job` varchar(255) NOT NULL,
-  `admin_about` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `admin_about` text NOT NULL,
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `admins`
+-- Dumping data for table `admins`
 --
 
 INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_image`, `admin_contact`, `admin_country`, `admin_job`, `admin_about`) VALUES
-(2, 'Yasser Dalouzi', 'admin@ave.com', '123', 'admin.jpg', '077885221', 'Morocco', 'Front-End Developer', ' Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical ');
+(2, 'Rachit', 'admin@ave.com', '123', 'adminnnn.jfif', '8747854120', 'India', 'Front-End Developer', '   Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical   ');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `bundle_product_relation`
+-- Table structure for table `bundle_product_relation`
 --
 
-CREATE TABLE `bundle_product_relation` (
-  `rel_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `bundle_product_relation`;
+CREATE TABLE IF NOT EXISTS `bundle_product_relation` (
+  `rel_id` int(10) NOT NULL AUTO_INCREMENT,
   `rel_title` varchar(255) NOT NULL,
   `product_id` int(10) NOT NULL,
-  `bundle_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `bundle_id` int(10) NOT NULL,
+  PRIMARY KEY (`rel_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `bundle_product_relation`
+-- Dumping data for table `bundle_product_relation`
 --
 
 INSERT INTO `bundle_product_relation` (`rel_id`, `rel_title`, `product_id`, `bundle_id`) VALUES
@@ -92,91 +98,100 @@ INSERT INTO `bundle_product_relation` (`rel_id`, `rel_title`, `product_id`, `bun
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `cart`
+-- Table structure for table `cart`
 --
 
-CREATE TABLE `cart` (
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE IF NOT EXISTS `cart` (
   `p_id` int(10) NOT NULL,
   `ip_add` varchar(255) NOT NULL,
   `qty` int(10) NOT NULL,
   `p_price` varchar(255) NOT NULL,
-  `size` text NOT NULL
+  `size` text NOT NULL,
+  PRIMARY KEY (`p_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `categories`
+-- Table structure for table `categories`
 --
 
-CREATE TABLE `categories` (
-  `cat_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `cat_id` int(10) NOT NULL AUTO_INCREMENT,
   `cat_title` text NOT NULL,
   `cat_top` text NOT NULL,
-  `cat_image` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `cat_image` text NOT NULL,
+  PRIMARY KEY (`cat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`cat_id`, `cat_title`, `cat_top`, `cat_image`) VALUES
-(2, 'Feminine', 'no', 'zinta_preity.jpg'),
-(3, 'Kids', 'no', 'image10.jpg'),
-(4, 'Others', 'yes', 'cat_image.jpg'),
-(5, 'Men', 'yes', 'image11.jpg');
+(2, 'Regular Cakes', 'no', 'rg1-strawberry-royal.jpg'),
+(3, 'Kids Cakes', 'no', 'kid1-mini_mouse_theme_cake.jpg'),
+(4, 'Others', 'yes', 'ac1-pink-heart-smallhamper.jpg'),
+(5, 'Premium Cakes', 'yes', 'pkb1.jpg');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `contact_us`
+-- Table structure for table `contact_us`
 --
 
-CREATE TABLE `contact_us` (
-  `contact_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `contact_us`;
+CREATE TABLE IF NOT EXISTS `contact_us` (
+  `contact_id` int(10) NOT NULL AUTO_INCREMENT,
   `contact_email` text NOT NULL,
   `contact_heading` text NOT NULL,
-  `contact_desc` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `contact_desc` text NOT NULL,
+  PRIMARY KEY (`contact_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `contact_us`
+-- Dumping data for table `contact_us`
 --
 
 INSERT INTO `contact_us` (`contact_id`, `contact_email`, `contact_heading`, `contact_desc`) VALUES
-(1, 'sad.ahmed22224@gmail.com', 'Contact  To Us', 'If you have any questions, please feel free to contact us, our customer service center is working for you 24/7.');
+(1, 'nikhilgupta8822@gmail.com', 'Contact  To Us', 'If you have any questions, please feel free to contact us, our customer service center is working for you 24/7.');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `coupons`
+-- Table structure for table `coupons`
 --
 
-CREATE TABLE `coupons` (
-  `coupon_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `coupons`;
+CREATE TABLE IF NOT EXISTS `coupons` (
+  `coupon_id` int(10) NOT NULL AUTO_INCREMENT,
   `product_id` int(10) NOT NULL,
   `coupon_title` varchar(255) NOT NULL,
   `coupon_price` varchar(255) NOT NULL,
   `coupon_code` varchar(255) NOT NULL,
   `coupon_limit` int(100) NOT NULL,
-  `coupon_used` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `coupon_used` int(100) NOT NULL,
+  PRIMARY KEY (`coupon_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `coupons`
+-- Dumping data for table `coupons`
 --
 
 INSERT INTO `coupons` (`coupon_id`, `product_id`, `coupon_title`, `coupon_price`, `coupon_code`, `coupon_limit`, `coupon_used`) VALUES
-(3, 9, 'Remind T-shirt', '40', '333444', 5, 1);
+(3, 9, 'Cake coupun', '40', '333444 ', 5, 1);
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `customers`
+-- Table structure for table `customers`
 --
 
-CREATE TABLE `customers` (
-  `customer_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `customers`;
+CREATE TABLE IF NOT EXISTS `customers` (
+  `customer_id` int(10) NOT NULL AUTO_INCREMENT,
   `customer_name` varchar(255) NOT NULL,
   `customer_email` varchar(255) NOT NULL,
   `customer_pass` varchar(255) NOT NULL,
@@ -186,35 +201,38 @@ CREATE TABLE `customers` (
   `customer_address` text NOT NULL,
   `customer_image` text NOT NULL,
   `customer_ip` varchar(255) NOT NULL,
-  `customer_confirm_code` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `customer_confirm_code` text NOT NULL,
+  PRIMARY KEY (`customer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `customers`
+-- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`, `customer_ip`, `customer_confirm_code`) VALUES
-(2, 'user', 'user@ave.com', '123', 'United State', 'New York', '0092334566931', 'new york', 'user.jpg', '::1', '');
+(2, 'user', 'user@ave.com', '123', 'India', 'Pune', '0092334566931', 'Pune', 'user.jpg', '::1', '');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `customer_orders`
+-- Table structure for table `customer_orders`
 --
 
-CREATE TABLE `customer_orders` (
-  `order_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `customer_orders`;
+CREATE TABLE IF NOT EXISTS `customer_orders` (
+  `order_id` int(10) NOT NULL AUTO_INCREMENT,
   `customer_id` int(10) NOT NULL,
   `due_amount` int(100) NOT NULL,
   `invoice_no` int(100) NOT NULL,
   `qty` int(10) NOT NULL,
   `size` text NOT NULL,
   `order_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `order_status` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `order_status` text NOT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `customer_orders`
+-- Dumping data for table `customer_orders`
 --
 
 INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`) VALUES
@@ -223,70 +241,82 @@ INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice
 (18, 2, 300, 1715523401, 1, 'Medium', '2017-02-20 08:21:42', 'pending'),
 (19, 2, 150, 1068059025, 1, 'Medium', '2017-02-20 08:26:47', 'pending'),
 (20, 2, 288, 909940689, 3, 'Large', '2017-02-27 11:06:32', 'complete'),
-(21, 2, 400, 909940689, 2, 'Meduim', '2017-02-27 11:06:37', 'complete');
+(21, 2, 400, 909940689, 2, 'Meduim', '2017-02-27 11:06:37', 'complete'),
+(22, 2, 300, 1898455304, 1, 'Small', '2020-09-26 05:49:54', 'pending'),
+(23, 2, 400, 1630727718, 1, 'Small', '2020-09-27 06:19:10', 'pending'),
+(24, 2, 200, 744853445, 1, 'Small', '2020-09-29 13:33:04', 'pending'),
+(25, 2, 200, 634859701, 1, 'Small', '2020-09-29 14:08:16', 'pending'),
+(26, 2, 200, 1339903337, 1, 'Small', '2020-09-29 14:17:02', 'pending');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `enquiry_types`
+-- Table structure for table `enquiry_types`
 --
 
-CREATE TABLE `enquiry_types` (
-  `enquiry_id` int(10) NOT NULL,
-  `enquiry_title` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `enquiry_types`;
+CREATE TABLE IF NOT EXISTS `enquiry_types` (
+  `enquiry_id` int(10) NOT NULL AUTO_INCREMENT,
+  `enquiry_title` varchar(255) NOT NULL,
+  PRIMARY KEY (`enquiry_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `enquiry_types`
+-- Dumping data for table `enquiry_types`
 --
 
 INSERT INTO `enquiry_types` (`enquiry_id`, `enquiry_title`) VALUES
 (1, 'Order and Delivery Support'),
 (2, 'Technical Support'),
-(3, 'Price Concern');
+(3, 'Price Concern'),
+(4, 'Defective Product');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `manufacturers`
+-- Table structure for table `manufacturers`
 --
 
-CREATE TABLE `manufacturers` (
-  `manufacturer_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `manufacturers`;
+CREATE TABLE IF NOT EXISTS `manufacturers` (
+  `manufacturer_id` int(10) NOT NULL AUTO_INCREMENT,
   `manufacturer_title` text NOT NULL,
   `manufacturer_top` text NOT NULL,
-  `manufacturer_image` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `manufacturer_image` text NOT NULL,
+  PRIMARY KEY (`manufacturer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `manufacturers`
+-- Dumping data for table `manufacturers`
 --
 
 INSERT INTO `manufacturers` (`manufacturer_id`, `manufacturer_title`, `manufacturer_top`, `manufacturer_image`) VALUES
-(2, 'Adidas', 'no', 'image2.jpg'),
-(3, 'Nike', 'no', 'image3.jpg'),
-(4, 'Philip Plein', 'no', 'manufacturer.jpg'),
-(5, 'Lacost', 'no', 'image6.jpg'),
-(6, 'Gucci', 'yes', 'akshay-kumar.jpg');
+(2, 'New Poona Bakery', 'no', 'manu1.png'),
+(3, 'Kraks N Burns', 'no', 'manu2-kraks-and-bruns_1.png'),
+(4, 'Monginis', 'no', 'manu3-monginis-logo.png'),
+(5, 'Bakers Basket', 'no', 'manu4-bakers-basket_1.png'),
+(6, 'Chocolate Biclate', 'yes', 'manu5-chocolate-biclate_1_.png');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `payments`
+-- Table structure for table `payments`
 --
 
-CREATE TABLE `payments` (
-  `payment_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `payments`;
+CREATE TABLE IF NOT EXISTS `payments` (
+  `payment_id` int(10) NOT NULL AUTO_INCREMENT,
   `invoice_no` int(10) NOT NULL,
   `amount` int(10) NOT NULL,
   `payment_mode` text NOT NULL,
   `ref_no` int(10) NOT NULL,
   `code` int(10) NOT NULL,
-  `payment_date` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `payment_date` text NOT NULL,
+  PRIMARY KEY (`payment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `payments`
+-- Dumping data for table `payments`
 --
 
 INSERT INTO `payments` (`payment_id`, `invoice_no`, `amount`, `payment_mode`, `ref_no`, `code`, `payment_date`) VALUES
@@ -296,21 +326,23 @@ INSERT INTO `payments` (`payment_id`, `invoice_no`, `amount`, `payment_mode`, `r
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `pending_orders`
+-- Table structure for table `pending_orders`
 --
 
-CREATE TABLE `pending_orders` (
-  `order_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `pending_orders`;
+CREATE TABLE IF NOT EXISTS `pending_orders` (
+  `order_id` int(10) NOT NULL AUTO_INCREMENT,
   `customer_id` int(10) NOT NULL,
   `invoice_no` int(10) NOT NULL,
   `product_id` text NOT NULL,
   `qty` int(10) NOT NULL,
   `size` text NOT NULL,
-  `order_status` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `order_status` text NOT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `pending_orders`
+-- Dumping data for table `pending_orders`
 --
 
 INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_id`, `qty`, `size`, `order_status`) VALUES
@@ -319,16 +351,19 @@ INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_
 (18, 2, 1715523401, '11', 1, 'Medium', 'pending'),
 (19, 2, 1068059025, '7', 1, 'Medium', 'pending'),
 (20, 2, 909940689, '6', 3, 'Large', 'complete'),
-(21, 2, 909940689, '11', 2, 'Meduim', 'complete');
+(21, 2, 909940689, '11', 2, 'Meduim', 'complete'),
+(22, 2, 1898455304, '11', 1, 'Small', 'pending'),
+(23, 2, 1630727718, '9', 1, 'Small', 'pending');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `products`
+-- Table structure for table `products`
 --
 
-CREATE TABLE `products` (
-  `product_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
+  `product_id` int(10) NOT NULL AUTO_INCREMENT,
   `p_cat_id` int(10) NOT NULL,
   `cat_id` int(10) NOT NULL,
   `manufacturer_id` int(10) NOT NULL,
@@ -345,87 +380,94 @@ CREATE TABLE `products` (
   `product_video` text NOT NULL,
   `product_keywords` text NOT NULL,
   `product_label` text NOT NULL,
-  `status` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` varchar(255) NOT NULL,
+  PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`product_id`, `p_cat_id`, `cat_id`, `manufacturer_id`, `date`, `product_title`, `product_url`, `product_img1`, `product_img2`, `product_img3`, `product_price`, `product_psp_price`, `product_desc`, `product_features`, `product_video`, `product_keywords`, `product_label`, `status`) VALUES
-(1, 5, 4, 3, '2017-02-15 10:48:40', 'New T-Shirt', 'new-t-shirt', 'img1.jpg', 'img2.jpg', 'img3.jpg', 70, 50, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla</p>', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/BxjtpdWeGtI\" frameborder=\"0\" allowfullscreen></iframe>', 'T-Shirts', 'Sale', 'product'),
-(2, 5, 3, 2, '2017-02-15 10:48:48', 'U.S. Polo Assn. Blue Polos shirt', 'product-url-2', 'U-S--Polo-Assn--Blue-Polos-0266-586842-1-pdp_slider_l.jpg', 'U-S--Polo-Assn--Blue-Polos-0268-586842-2-pdp_slider_l.jpg', 'U-S--Polo-Assn--Blue-Polos-0271-586842-3-pdp_slider_l.jpg', 69, 45, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.</p>', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,', '<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>', 'T-Shirt', 'Gift', 'product'),
-(3, 5, 3, 6, '2017-02-15 10:48:52', 'BENETTON White Polo Shirt', 'product-url-3', 'United-Colors-of-Benetton-White-Polo-Shirt-0608-0914361-1-pdp_slider_l.jpg', 'United-Colors-of-Benetton-White-Polo-Shirt-0608-0914361-2-pdp_slider_l.jpg', 'United-Colors-of-Benetton-White-Polo-Shirt-0609-0914361-3-pdp_slider_l.jpg', 98, 0, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla</p>', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,', '<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>', 'T-Shirt', 'New', 'product'),
-(4, 7, 5, 5, '2017-02-19 06:49:39', 'Navy Blue Solid Denim Jacket', 'product-url-4', 'Levi-s-Blue-Solid-Denim-Jacket-5953-6506172-1-pdp_slider_l.jpg', 'Levi-s-Blue-Solid-Denim-Jacket-5953-6506172-2-pdp_slider_l.jpg', 'Levi-s-Blue-Solid-Denim-Jacket-5953-6506172-3-pdp_slider_l.jpg', 230, 150, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.</p>', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,', '<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>', 'Jackets', 'Sale', 'product'),
-(5, 7, 5, 5, '2017-02-19 06:45:07', 'Denim Borg Lined Western Jacket', 'product-url-5', 'Next-Denim-Borg-Lined-Western-Jacket-0463-0064553-1-pdp_slider_l.jpg', 'Next-Denim-Borg-Lined-Western-Jacket-0463-0064553-2-pdp_slider_l.jpg', 'Next-Denim-Borg-Lined-Western-Jacket-0465-0064553-3-pdp_slider_l.jpg', 259, 100, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.</p>', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,', '<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>', 'Jackets', 'Gift', 'product'),
-(6, 7, 5, 5, '2017-02-19 06:49:18', 'Jack & White Solid Denim Jacket', 'product-url-6', 'Jack---Jones-White-Solid-Denim-Jacket-3115-5549091-1-pdp_slider_l.jpg', 'Jack---Jones-White-Solid-Denim-Jacket-3115-5549091-2-pdp_slider_l.jpg', 'Jack---Jones-White-Solid-Denim-Jacket-3115-5549091-3-pdp_slider_l.jpg', 96, 0, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.</p>', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,', '<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>', 'Jackets', 'New', 'product'),
-(7, 4, 2, 6, '2017-02-15 10:49:07', 'Nice Solid Long Coat With Lace', 'product-url-7', 'fur coat with button1.jpg', 'fur coat with button2.jpg', 'fur coat with button3.jpg', 200, 150, '<p>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document. kingVideo provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document</p>', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,', '<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>', 'Coats', 'Sale', 'product'),
-(8, 4, 2, 4, '2017-02-15 10:49:11', 'Sleeveless Faux Fur Hybrid Coat', 'product-url-8', 'Black Blouse Versace Coat1.jpg', 'Black Blouse Versace Coat2.jpg', 'Black Blouse Versace Coat3.jpg', 245, 100, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.</p>', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,', '<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>', 'Coats', 'Gift', 'product'),
-(9, 5, 4, 2, '2017-02-19 06:46:14', 'Remind Printed T-Shirt', 'product-url-9', 'product-1.jpg', 'product-2.jpg', 'product-3.jpg', 50, 0, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.</p>', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,', '<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>', 'T-Shirt', 'New', 'product'),
-(11, 7, 5, 5, '2017-02-20 06:21:03', 'jacket bundle', 'jacket-bundle', 'jacket-1.jpg', 'jacket-2.jpg', 'jacket-3.jpg', 300, 200, '<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>', '<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>', '<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qImi3vNccaU\" frameborder=\"0\" allowfullscreen></iframe>', 'jacket bundle', 'Sale', 'bundle');
+(1, 4, 5, 3, '2020-09-30 16:27:50', 'Dutch Truffle ', 'product-url-1', 'pkb2.jpg', 'pkb2.jpg', 'pkb2.jpg', 300, 250, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla</p>', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '\r\n\r\n\r\n\r\n\r\n<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/BxjtpdWeGtI\" frameborder=\"0\" allowfullscreen></iframe>\r\n\r\n\r\n\r\n\r\n', 'Premium-Cake', 'Sale', 'product'),
+(2, 4, 5, 5, '2020-09-26 08:48:38', 'Three Tier Cake', 'there-tier-cake', 'pc4-three_tier_cake.jpg', 'pc4-three_tier_cake.jpg', 'pc4-three_tier_cake.jpg', 10000, 8000, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.</p>', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '\r\n\r\n\r\n\r\n<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>\r\n\r\n\r\n\r\n', 'Premium-Cake', 'Gift', 'product'),
+(3, 4, 5, 6, '2020-09-26 08:51:02', 'Barbie Doll Cake', 'product-url-3', 'pc5-barbie_doll_cake_1.jpg', 'pc5-barbie_doll_cake_1.jpg', 'pc5-barbie_doll_cake_1.jpg', 1600, 1000, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla</p>', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '\r\n\r\n<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>\r\n\r\n', 'Premium-Cake', 'New', 'product'),
+(4, 4, 2, 3, '2020-09-26 08:51:21', 'Pineapple Cake', 'product-url-4', 'rg2-pineapple-std.jpg', 'rg2-pineapple-std.jpg', 'rg2-pineapple-std.jpg', 230, 150, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.</p>', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '\r\n\r\n<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>\r\n\r\n', 'Regular-Cake', 'Sale', 'product'),
+(5, 4, 2, 4, '2020-09-26 08:54:49', 'Black Forest Cake', 'product-url-5', 'rc3-black-forest-std.jpg', 'rc3-black-forest-std.jpg', 'rc3-black-forest-std.jpg', 259, 100, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.</p>', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '\r\n\r\n<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>\r\n\r\n', 'Regular-Cake', 'Gift', 'product'),
+(6, 4, 3, 6, '2020-09-26 08:57:17', 'Angry Bird Cake', 'product-url-6', 'kc1.2012-09-17-20.26.jpg', 'kc1.2012-09-17-20.26.jpg', 'kc1.2012-09-17-20.26.jpg', 300, 250, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.</p>', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '\r\n<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>\r\n', 'Kids-Cake', 'New', 'product'),
+(7, 4, 3, 6, '2020-09-26 08:58:58', 'Mini-Mouse', 'product-url-7', 'kid1-mini_mouse_theme_cake.jpg', 'kid1-mini_mouse_theme_cake.jpg', 'kid1-mini_mouse_theme_cake.jpg', 200, 150, '<p>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document. kingVideo provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. You can also type a keyword to search online for the video that best fits your document</p>', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '\r\n\r\n<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>\r\n\r\n', 'Kids-Cake', 'Sale', 'product'),
+(8, 4, 2, 2, '2020-09-26 09:02:45', 'Doreamon Photo Cake', 'product-url-8', 'photo1-5_22.jpg', 'photo1-5_22.jpg', 'photo1-5_22.jpg', 245, 100, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.</p>', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '\r\n\r\n<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>\r\n\r\n', 'Photo-Cake', 'Gift', 'product'),
+(9, 5, 2, 2, '2020-09-26 09:04:34', 'Car Photo Cake', 'product-url-9', 'car2-2_28.jpg', 'car2-2_28.jpg', 'car2-2_28.jpg', 400, 300, '<p>Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.Integer tristique dictum sapien et lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed sed imperdiet magna, at rhoncus arcu. Cras tincidunt felis eu vehicula consequat. Proin vel gravida quam. In tincidunt aliquam nisl. Sed velit erat, aliquam sit amet metus eget, molestie auctor nulla.</p>', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '\r\n<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/qRswlmADRa8\" frameborder=\"0\" allowfullscreen></iframe>\r\n', 'T-Shirt', 'New', 'product'),
+(11, 4, 5, 2, '2020-09-29 12:07:19', 'cake bundle', 'cake-bundle', 'pkb1.jpg', 'pkb2.jpg', 'pkb3.jpg', 300, 200, '<p><strong style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">Red velvet cake</strong><span style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">&nbsp;is traditionally a&nbsp;</span><strong style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">red</strong><span style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">,&nbsp;</span><strong style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">red</strong><span style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">-brown, crimson or scarlet-colored chocolate layer&nbsp;</span><strong style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">cake</strong><span style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">, layered with ermine icing. Traditional recipes do not use food coloring, with the&nbsp;</span><strong style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">red</strong><span style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">&nbsp;color due to non-Dutched, anthocyanin-rich cocoa. Common ingredients include buttermilk, butter, cocoa, vinegar, and flour.</span></p>', '<p><strong style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">Red velvet cake</strong><span style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">&nbsp;is traditionally a&nbsp;</span><strong style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">red</strong><span style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">,&nbsp;</span><strong style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">red</strong><span style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">-brown, crimson or scarlet-colored chocolate layer&nbsp;</span><strong style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">cake</strong><span style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">, layered with ermine icing. Traditional recipes do not use food coloring, with the&nbsp;</span><strong style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">red</strong><span style=\"color: #222222; font-family: arial, sans-serif; font-size: 16px;\">&nbsp;color due to non-Dutched, anthocyanin-rich cocoa. Common ingredients include buttermilk, butter, cocoa, vinegar, and flour.</span></p>', '\r\n\r\n\r\n\r\n\r\n\r\n<iframe width=\"854\" height=\"480\" src=\"https://www.youtube.com/embed/vGE-RfP6KRE\" frameborder=\"0\" allowfullscreen></iframe>\r\n\r\n\r\n\r\n\r\n\r\n', 'jacket bundle', 'Sale', 'bundle');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `product_categories`
+-- Table structure for table `product_categories`
 --
 
-CREATE TABLE `product_categories` (
-  `p_cat_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `product_categories`;
+CREATE TABLE IF NOT EXISTS `product_categories` (
+  `p_cat_id` int(10) NOT NULL AUTO_INCREMENT,
   `p_cat_title` text NOT NULL,
   `p_cat_top` text NOT NULL,
-  `p_cat_image` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `p_cat_image` text NOT NULL,
+  PRIMARY KEY (`p_cat_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `product_categories`
+-- Dumping data for table `product_categories`
 --
 
 INSERT INTO `product_categories` (`p_cat_id`, `p_cat_title`, `p_cat_top`, `p_cat_image`) VALUES
-(4, 'Coats', 'no', 'image3.jpg'),
-(5, 'T-Shirts', 'no', 'image2.jpg'),
-(6, 'Sweater', 'no', 'sweater.jpg'),
-(7, 'jackets', 'yes', 'jacket.jpg');
+(4, 'Cakes', 'no', 'pkb1.jpg'),
+(5, 'Pastery/Cupcake', 'no', 'pas1-choco-Truffle.jpg'),
+(6, 'Accessories', 'no', 'ac1-pink-heart-smallhamper.jpg'),
+(7, 'Snacks', 'yes', 'sn1_butterchickencroisant.jpg');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `store`
+-- Table structure for table `store`
 --
 
-CREATE TABLE `store` (
-  `store_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `store`;
+CREATE TABLE IF NOT EXISTS `store` (
+  `store_id` int(10) NOT NULL AUTO_INCREMENT,
   `store_title` varchar(255) NOT NULL,
   `store_image` varchar(255) NOT NULL,
   `store_desc` text NOT NULL,
   `store_button` varchar(255) NOT NULL,
-  `store_url` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `store_url` varchar(255) NOT NULL,
+  PRIMARY KEY (`store_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `store`
+-- Dumping data for table `store`
 --
 
 INSERT INTO `store` (`store_id`, `store_title`, `store_image`, `store_desc`, `store_button`, `store_url`) VALUES
-(4, 'London Store', 'store (3).jpg', '<p style=\"text-align: center;\"><strong>180-182 RECENTS STREET, LONDON, W1B 5BT</strong></p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero erat, aliquet eget mauris ut, dictum sagittis libero. Nam at dui dapibus, semper dolor ac, malesuada mi. Duis quis lobortis arcu. Vivamus sed sodales orci, non varius dolor.</p>', 'View Map', 'http://www.thedailylux.com/ecommerce'),
-(5, 'New York Store', 'store (1).png', '<p style=\"text-align: center;\"><strong>109 COLUMBUS CIRCLE, NEW YORK, NY10023</strong></p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero erat, aliquet eget mauris ut, dictum sagittis libero. Nam at dui dapibus, semper dolor ac, malesuada mi. Duis quis lobortis arcu. Vivamus sed sodales orci, non varius dolor.</p>', 'View Map', 'http://www.thedailylux.com/ecommerce'),
-(6, 'Paris Store', 'store (2).jpg', '<p style=\"text-align: center;\"><strong>2133 RUE SAINT-HONORE, 75001 PARIS&nbsp;</strong></p>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut libero erat, aliquet eget mauris ut, dictum sagittis libero. Nam at dui dapibus, semper dolor ac, malesuada mi. Duis quis lobortis arcu. Vivamus sed sodales orci, non varius dolor.</p>', 'View Map', 'http://www.thedailylux.com/ecommerce');
+(4, 'Pune Store', 'store1.jpg', '<p style=\"text-align: center;\"><strong>180-182 RECENTS STREET, PUNE, W1B 5BT</strong></p>\r\n<p><span style=\"color: #333333; font-family: Roboto;\">One of the key factors in The &lsquo;Organization Name&rsquo; Bakery&rsquo;s prosperity has been its ethos that cakes taste best when they&rsquo;ve been naturally heated utilizing the very same fixings and methods as those utilized in home preparing.</span></p>', 'View Map', 'https://g.page/thecakecarnival?share'),
+(5, 'Mumbai Store', 'store2.jpg', '<p style=\"text-align: center;\"><strong>109 COLUMBUS CIRCLE, MUMBAI, MY10023</strong></p>\r\n<p><span style=\"color: #333333; font-family: Roboto;\">One of the key factors in The &lsquo;Organization Name&rsquo; Bakery&rsquo;s prosperity has been its ethos that cakes taste best when they&rsquo;ve been naturally heated utilizing the very same fixings and methods as those utilized in home preparing.&nbsp;</span><span style=\"font-family: Roboto; font-size: 10.5pt;\">Consequently, every single &lsquo;Organization Name&rsquo; Bakery branch has its own kitchen and a group of occupant master pastry specialists and cake decorators</span></p>', 'View Map', 'https://g.page/softezi?share'),
+(6, 'Goa Store', 'store3.jpg', '<p style=\"text-align: center;\"><strong>2133 RUE SAINT-HONORE, 75001 GOA&nbsp;</strong></p>\r\n<p><span style=\"color: #333333; font-family: Roboto;\">One of the key factors in The &lsquo;Organization Name&rsquo; Bakery&rsquo;s prosperity has been its ethos that cakes taste best when they&rsquo;ve been naturally heated utilizing the very same fixings and methods as those utilized in home preparing.&nbsp;</span></p>', 'View Map', 'https://goo.gl/maps/Ss1QNpBi2xxKFMky8');
 
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `terms`
+-- Table structure for table `terms`
 --
 
-CREATE TABLE `terms` (
-  `term_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `terms`;
+CREATE TABLE IF NOT EXISTS `terms` (
+  `term_id` int(10) NOT NULL AUTO_INCREMENT,
   `term_title` varchar(100) NOT NULL,
   `term_link` varchar(100) NOT NULL,
-  `term_desc` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `term_desc` text NOT NULL,
+  PRIMARY KEY (`term_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `terms`
+-- Dumping data for table `terms`
 --
 
 INSERT INTO `terms` (`term_id`, `term_title`, `term_link`, `term_desc`) VALUES
@@ -436,239 +478,23 @@ INSERT INTO `terms` (`term_id`, `term_title`, `term_link`, `term_desc`) VALUES
 -- --------------------------------------------------------
 
 --
--- بنية الجدول `wishlist`
+-- Table structure for table `wishlist`
 --
 
-CREATE TABLE `wishlist` (
-  `wishlist_id` int(10) NOT NULL,
+DROP TABLE IF EXISTS `wishlist`;
+CREATE TABLE IF NOT EXISTS `wishlist` (
+  `wishlist_id` int(10) NOT NULL AUTO_INCREMENT,
   `customer_id` int(10) NOT NULL,
-  `product_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `product_id` int(10) NOT NULL,
+  PRIMARY KEY (`wishlist_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- إرجاع أو استيراد بيانات الجدول `wishlist`
+-- Dumping data for table `wishlist`
 --
 
 INSERT INTO `wishlist` (`wishlist_id`, `customer_id`, `product_id`) VALUES
-(2, 2, 8);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `about_us`
---
-ALTER TABLE `about_us`
-  ADD PRIMARY KEY (`about_id`);
-
---
--- Indexes for table `admins`
---
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`admin_id`);
-
---
--- Indexes for table `bundle_product_relation`
---
-ALTER TABLE `bundle_product_relation`
-  ADD PRIMARY KEY (`rel_id`);
-
---
--- Indexes for table `cart`
---
-ALTER TABLE `cart`
-  ADD PRIMARY KEY (`p_id`);
-
---
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`cat_id`);
-
---
--- Indexes for table `contact_us`
---
-ALTER TABLE `contact_us`
-  ADD PRIMARY KEY (`contact_id`);
-
---
--- Indexes for table `coupons`
---
-ALTER TABLE `coupons`
-  ADD PRIMARY KEY (`coupon_id`);
-
---
--- Indexes for table `customers`
---
-ALTER TABLE `customers`
-  ADD PRIMARY KEY (`customer_id`);
-
---
--- Indexes for table `customer_orders`
---
-ALTER TABLE `customer_orders`
-  ADD PRIMARY KEY (`order_id`);
-
---
--- Indexes for table `enquiry_types`
---
-ALTER TABLE `enquiry_types`
-  ADD PRIMARY KEY (`enquiry_id`);
-
---
--- Indexes for table `manufacturers`
---
-ALTER TABLE `manufacturers`
-  ADD PRIMARY KEY (`manufacturer_id`);
-
---
--- Indexes for table `payments`
---
-ALTER TABLE `payments`
-  ADD PRIMARY KEY (`payment_id`);
-
---
--- Indexes for table `pending_orders`
---
-ALTER TABLE `pending_orders`
-  ADD PRIMARY KEY (`order_id`);
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`);
-
---
--- Indexes for table `product_categories`
---
-ALTER TABLE `product_categories`
-  ADD PRIMARY KEY (`p_cat_id`);
-
---
--- Indexes for table `store`
---
-ALTER TABLE `store`
-  ADD PRIMARY KEY (`store_id`);
-
---
--- Indexes for table `terms`
---
-ALTER TABLE `terms`
-  ADD PRIMARY KEY (`term_id`);
-
---
--- Indexes for table `wishlist`
---
-ALTER TABLE `wishlist`
-  ADD PRIMARY KEY (`wishlist_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `about_us`
---
-ALTER TABLE `about_us`
-  MODIFY `about_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `admin_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `bundle_product_relation`
---
-ALTER TABLE `bundle_product_relation`
-  MODIFY `rel_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `contact_us`
---
-ALTER TABLE `contact_us`
-  MODIFY `contact_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `coupons`
---
-ALTER TABLE `coupons`
-  MODIFY `coupon_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `customers`
---
-ALTER TABLE `customers`
-  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `customer_orders`
---
-ALTER TABLE `customer_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `enquiry_types`
---
-ALTER TABLE `enquiry_types`
-  MODIFY `enquiry_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `manufacturers`
---
-ALTER TABLE `manufacturers`
-  MODIFY `manufacturer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `payments`
---
-ALTER TABLE `payments`
-  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `pending_orders`
---
-ALTER TABLE `pending_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `products`
---
-ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT for table `product_categories`
---
-ALTER TABLE `product_categories`
-  MODIFY `p_cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `store`
---
-ALTER TABLE `store`
-  MODIFY `store_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `terms`
---
-ALTER TABLE `terms`
-  MODIFY `term_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `wishlist`
---
-ALTER TABLE `wishlist`
-  MODIFY `wishlist_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+(3, 2, 11);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

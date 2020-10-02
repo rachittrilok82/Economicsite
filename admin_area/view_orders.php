@@ -209,3 +209,40 @@ echo $order_status='Complete';
 
 
 <?php } ?>
+
+
+<div class="row printing">
+    <div class="col-md-4 offset-md-4">
+    <a href="printbill.php" target="_blank"><button class="buttonn button2">Print Bill</button><a>
+    </div>
+</div>
+<style>
+.printing{
+    position:relative;
+    margin-left:600px;
+}
+.buttonn {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-weight:bold;
+  border-radius:4px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button2 {
+  background-color: lightblue; 
+  color: black; 
+  border: 2px solid #008CBA;
+}
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+</style>

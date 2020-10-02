@@ -160,7 +160,7 @@ include("includes/main.php");
 </div><!-- form-group Ends -->
 
 
-<div class="form-group"><!-- form-group Starts -->
+<!--<div class="form-group">
 
 <center>
 
@@ -170,7 +170,7 @@ include("includes/main.php");
 
 </center>
 
-</div><!-- form-group Ends -->
+</div>--><!-- form-group Ends -->
 
 
 <div class="text-center"><!-- text-center Starts -->
@@ -328,7 +328,7 @@ if(val.length<=6)no=1;
 <?php
 
 if(isset($_POST['register'])){
-
+/*
 $secret = "6Lc-WxYUAAAAAN5j2OdDsryWwGfREg5eeuZFpKMv";
 
 $response = $_POST['g-recaptcha-response'];
@@ -339,7 +339,7 @@ $url = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret
 
 $result = json_decode($url, TRUE);
 
-if($result['success'] == 1){
+if($result['success'] == 1){*/
 
 $c_name = $_POST['c_name'];
 
@@ -378,10 +378,10 @@ exit();
 }
 
 $customer_confirm_code = mt_rand();
-
+//SEND CONFIRMATION TO THE REGISTERED USER
 $subject = "Email Confirmation Message";
 
-$from = "sad.ahmed22224@gmail.com";
+$from = "nikhilgupta8822@gmail.com";
 
 $message = "
 
@@ -389,7 +389,7 @@ $message = "
 Email Confirmation By Computerfever.com $c_name
 </h2>
 
-<a href='localhost/ecom_store/customer/my_account.php?$customer_confirm_code'>
+<a href='localhost/Ecommerce/ecommerce-website-master/customer/my_account.php?$customer_confirm_code'>
 
 Click Here To Confirm Email
 
@@ -401,7 +401,45 @@ $headers = "From: $from \r\n";
 
 $headers .= "Content-type: text/html\r\n";
 
-mail($c_email,$subject,$message,$headers);
+//mail($c_email,$subject,$message,$headers);
+
+require 'PHPMailer-5.2-stable/PHPMailerAutoload.php';
+	
+	$mail = new PHPMailer;
+	
+	$mail->isSMTP();                                    
+	$mail->Host = 'smtp.gmail.com';  
+	$mail->SMTPAuth = true;                               
+	$mail->Username = 'nikhilgupta8822@gmail.com';                 
+	$mail->Password = 'Randy500$';                           
+	$mail->SMTPSecure = 'tls';                            
+	$mail->Port = 587;                                   
+	
+	$mail->setFrom($from, 'The Cake Carnival');
+	$mail->addAddress($c_email, 'Recepient');     
+	
+	$mail->addReplyTo('nikhilgupta8822@gmail.com', 'Information');
+
+	
+	
+	
+	$mail->isHTML(true);                                
+	
+	$mail->Subject = $subject;
+	$mail->Body    = $message;
+	$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+	
+  if(!$mail->send()) {
+		
+	} else {
+
+		
+	}
+
+
+//SEND CONFIRMATION TO THE REGISTERED USER
+
+
 
 $insert_customer = "insert into customers (customer_name,customer_email,customer_pass,customer_country,customer_city,customer_contact,customer_address,customer_image,customer_ip,customer_confirm_code) values ('$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_image','$c_ip','$customer_confirm_code')";
 
@@ -434,12 +472,12 @@ echo "<script>window.open('index.php','_self')</script>";
 }
 
 
-}
+/*}
 else{
 
 echo "<script>alert('Please Select Captcha, Try Again')</script>";
 
-}
+}*/
 
 
 }
