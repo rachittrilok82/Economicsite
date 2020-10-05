@@ -98,6 +98,7 @@ $pro_price = $row_products['product_price'];
 $pro_img1 = $row_products['product_img1'];
 
 $pro_label = $row_products['product_label'];
+$pro_rateing=$row_products['rateing'];
 
 $manufacturer_id = $row_products['manufacturer_id'];
 
@@ -174,7 +175,61 @@ echo "
 
 <h3><a href='$pro_url' >$pro_title</a></h3>
 
-<p class='price' > $product_price $product_psp_price </p>
+<p class='price' > $product_price $product_psp_price </p>";
+
+?>
+
+<style>.checked {
+  color: orange;
+}</style>
+<?php if($pro_rateing==1){?>
+<span style="margin-left:80px;" class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<?php }
+else if($pro_rateing==2)
+{
+?>
+<span style="margin-left:80px;" class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<?php }
+else if($pro_rateing==3)
+{
+?>
+<span style="margin-left:80px;" class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<?php }
+else if($pro_rateing==4)
+{
+?>
+<span style="margin-left:80px;" class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<?php }
+else 
+{
+?>
+<span style="margin-left:80px;" class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<?php }
+
+?>
+<?php
+echo "<br><br>
+
 
 <p class='buttons' >
 
@@ -304,6 +359,7 @@ $pro_price = $row_products['product_price'];
 $pro_img1 = $row_products['product_img1'];
 
 $pro_label = $row_products['product_label'];
+$pro_rateing=$row_products['rateing'];
 
 $manufacturer_id = $row_products['manufacturer_id'];
 
@@ -381,8 +437,59 @@ echo "
 
 <h3><a href='$pro_url' >$pro_title</a></h3>
 
-<p class='price' > $product_price $product_psp_price </p>
+<p class='price' > $product_price $product_psp_price </p>";
+?>
 
+<style>.checked {
+  color: orange;
+}</style>
+<?php if($pro_rateing==1){?>
+<span style="margin-left:80px;" class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<?php }
+else if($pro_rateing==2)
+{
+?>
+<span style="margin-left:80px;" class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<?php }
+else if($pro_rateing==3)
+{
+?>
+<span style="margin-left:80px;" class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+<?php }
+else if($pro_rateing==4)
+{
+?>
+<span style="margin-left:80px;" class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<?php }
+else 
+{
+?>
+<span style="margin-left:80px;" class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<?php }
+
+?>
+<?php
+echo "<br><br>
 <p class='buttons' >
 
 <a href='$pro_url' class='btn btn-default' >View details</a>

@@ -39,6 +39,8 @@ include("includes/main.php");
     </div><!-- container Ends -->
     <!-- FOOTER -->
     <footer class="page-footer">
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-3cd09ac0-bf30-453d-ba22-fd6751c39d55"></div>
 
       <div class="footer-nav">
         <div class="container clearfix">
@@ -47,7 +49,7 @@ include("includes/main.php");
             <div class="footer-nav__heading">Information</div>
             <ul class="footer-nav__list">
               <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">The brand</a>
+                <a href="faq.php" class="footer-nav__link">FAQ</a>
               </li>
               <li class="footer-nav__item">
                 <a href="localstore.php" class="footer-nav__link">Local stores</a>
@@ -59,7 +61,7 @@ include("includes/main.php");
                 <a href="terms.php" class="footer-nav__link">Privacy &amp; cookies</a>
               </li>
               <li class="footer-nav__item">
-                <a href="#" class="footer-nav__link">Site map</a>
+                <a href="rate.php" target="_blank" class="footer-nav__link">Rate</a>
               </li>
             </ul>
           </div>

@@ -207,7 +207,7 @@ $<?php echo $sub_total; ?>.00
 
 </button>
 
-<a href="checkout.php" class="btn btn-primary">
+<a href="checkout.php" onclick="return timeing()" class="btn btn-primary">
 
 Proceed to checkout <i class="fa fa-chevron-right"></i>
 
@@ -221,6 +221,21 @@ Proceed to checkout <i class="fa fa-chevron-right"></i>
 
 
 </div><!-- box Ends -->
+<script>
+  function timeing()
+  {
+    var d = new Date();
+    var n = d.getHours();
+    if(!(n>6 && n<23))
+    {
+      alert("Shop is not accepting any orders at this time\n Open hours from 6:00 AM to 11:00 PM");
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+</script>
 
 <?php
 

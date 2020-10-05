@@ -1,4 +1,6 @@
 <footer class="page-footer">
+<script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-3cd09ac0-bf30-453d-ba22-fd6751c39d55"></div>
 
 	<div class="footer-nav">
 		<div class="container clearfix">
@@ -7,19 +9,19 @@
 				<div class="footer-nav__heading">Information</div>
 				<ul class="footer-nav__list">
 					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">The brand</a>
+						<a href="faq.php" class="footer-nav__link">FAQ</a>
 					</li>
 					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">Local stores</a>
+						<a href="localstore.php" class="footer-nav__link">Local stores</a>
 					</li>
 					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">Customer service</a>
+						<a href="contact.php" class="footer-nav__link">Customer service</a>
 					</li>
 					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">Privacy &amp; cookies</a>
+						<a href="terms.php" class="footer-nav__link">Privacy &amp; cookies</a>
 					</li>
 					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">Site map</a>
+						<a href="rate.php" target="_blank" class="footer-nav__link">Rate</a>
 					</li>
 				</ul>
 			</div>
@@ -49,13 +51,13 @@
 				<div class="footer-nav__heading">Your account</div>
 				<ul class="footer-nav__list">
 					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">Sign in</a>
+						<a href="checkout.php" class="footer-nav__link">Sign in</a>
 					</li>
 					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">Register</a>
+						<a href="customer_register" class="footer-nav__link">Register</a>
 					</li>
 					<li class="footer-nav__item">
-						<a href="#" class="footer-nav__link">View cart</a>
+						<a href="cart.php" class="footer-nav__link">View cart</a>
 					</li>
 					<li class="footer-nav__item">
 						<a href="#" class="footer-nav__link">View your lookbook</a>

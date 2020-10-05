@@ -19,6 +19,28 @@
 ?>
           </a>
         </div>
+        <!--
+        <style>
+          .topnav{
+            display:inline;
+           position:relative;
+           left:40rem;
+          
+            top:16px;
+          
+          }
+          .searinpt, .searbtn{
+            padding:8px;
+          }
+          .searbtn:hover{
+            background:lightgrey;
+
+          }
+        </style>
+        <form class="topnav" action="shop.php" method="GET">
+                <input class="searinpt" type="text" placeholder="Search.." name="search">
+                <button class="searbtn" name="submit" type="submit"><i class="fa fa-search"></i></button>
+              </form>-->
 
         <div class="basket">
           <a href="cart.php" class="btn btn--basket">
@@ -69,11 +91,12 @@ if(!isset($_SESSION['customer_email'])){
           <a class="logo__link" href="index.php">
             <img class="logo__img" src="images/cakelogo.png" alt="Cake Carnival fashion logotype" width="120" height="0">
           </a>
+         
         </div>
 
         <nav class="main-nav">
-          <ul class="categories">
 
+          <ul class="categories">
             <li class="categories__item">
               <a class="categories__link" href="index.php">
                 Home
