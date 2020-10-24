@@ -179,15 +179,15 @@ require 'PHPMailer-5.2-stable/PHPMailerAutoload.php';
 	$mail->isSMTP();                                    
 	$mail->Host = 'smtp.gmail.com';  
 	$mail->SMTPAuth = true;                               
-	$mail->Username = 'nikhilgupta8822@gmail.com';                 
-	$mail->Password = 'Randy500$';                           
+	$mail->Username = 'rachit@gmail.com';                 
+	$mail->Password = '';                           
 	$mail->SMTPSecure = 'tls';                            
 	$mail->Port = 587;                                   
 	
-	$mail->setFrom('nikhilgupta8822@gmail.com', 'Complain');
-	$mail->addAddress('nikhilgupta8822@gmail.com', 'Recepient');     
+	$mail->setFrom('rachit@gmail.com', 'Complain');
+	$mail->addAddress('rachit@gmail.com', 'Recepient');     
 	
-	$mail->addReplyTo('nikhilgupta8822@gmail.com', 'Information');
+	$mail->addReplyTo('rachit@gmail.com', 'Information');
 
 	
 	
@@ -216,14 +216,14 @@ $subject = "Welcome to the Cake Carnival";
 
 $msg = "I shall get you soon, thanks for sending us email";
 
-$from = "nikhilgupta8822@gmail.com";
+$from = "rachit@gmail.com";
 
 //mail($email,$subject,$msg,$from);
 /*SEND A REPLY MESSAGE TO THE SENDER*/ 
-$mail->setFrom('nikhilgupta8822@gmail.com', 'The Cake Carnival');
+$mail->setFrom('rachit@gmail.com', 'The Cake Carnival');
 $mail->addAddress($email, 'Recepient');     
 
-$mail->addReplyTo('nikhilgupta8822@gmail.com', 'Information');
+$mail->addReplyTo('rachit@gmail.com', 'Information');
 
 $mail->isHTML(true);                                
 
